@@ -14,20 +14,49 @@
             <RowDefinition Height="4*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0">
-            <Button>View all</Button>
-        </Border>
-       
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="View All" Height="40" />
+            <Button Grid.Column="1" Content="Your Files" Height="40" Width="120"/>
+            <Button Grid.Column="2" Content="Share All" Height="40" Width="120"/>
+            <TextBox Text="Search" TextAlignment="Left" Grid.Column="3" HorizontalAlignment="Right" Height="40" Width="400" Margin="20" FontSize="20"/>
+        </Grid>
 
         <Border Grid.Row="1" Background="WhiteSmoke" CornerRadius="25" >
             <!--<Separator Grid.Row="1" BorderThickness="8" BorderBrush="Red">
-
             </Separator>-->
             <TextBox></TextBox>
         </Border>
-       
-        
-    </Grid>
+        <DataGrid Name="datagridclientview" Grid.Row="1" Height="550" Margin="20" CanUserAddRows="False" >
 
+            <!--<DataGrid.Columns>
+                --><!--CHECKBOX--><!--
+                <DataGridCheckBoxColumn CanUserResize="false" >
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+
+                --><!--INVOICE--><!--
+                <DataGridTemplateColumn Header="Invoice" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" Text="{Binding InvoiceTag}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>-->
+
+        </DataGrid>
+
+    </Grid>
 
 </Window>

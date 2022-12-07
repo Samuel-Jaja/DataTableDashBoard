@@ -23,6 +23,11 @@ namespace DataTableDashBoard
         public MainWindow()
         {
             InitializeComponent();
+            datagridclientview.ItemsSource = Client.LoadClientData();
+           
         }
+        
+
+        
     }
 }
