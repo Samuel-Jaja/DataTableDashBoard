@@ -26,8 +26,10 @@ namespace DataTableDashBoard
             datagridclientview.ItemsSource = Client.LoadClientData();
            
         }
-        
 
-        
+        private void txtBlockSearch_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

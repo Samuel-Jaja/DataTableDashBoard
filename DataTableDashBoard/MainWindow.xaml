@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataTableDashBoard"
+        xmlns:local="clr-namespace:DataTableDashBoard" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" >
    
@@ -22,10 +22,25 @@
                 <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="View All" Height="40" />
-            <Button Grid.Column="1" Content="Your Files" Height="40" Width="120"/>
-            <Button Grid.Column="2" Content="Share All" Height="40" Width="120"/>
-            <TextBox Text="Search" TextAlignment="Left" Grid.Column="3" HorizontalAlignment="Right" Height="40" Width="400" Margin="20" FontSize="20"/>
+            <Button Style="{StaticResource topButton}" Grid.Column="0" Content="View All" Height="40" />
+            <Button Style="{StaticResource topButton}" Grid.Column="1" Content="Your Files" Height="40" Width="120"/>
+            <Button Style="{StaticResource topButton}" Grid.Column="2" Content="Share All" Height="40" Width="120"/>
+            <!--<TextBox Text="Search" TextAlignment="Left" Grid.Column="3" HorizontalAlignment="Right" Height="40" Width="400" Margin="20" FontSize="20"/>-->
+
+            <Border Grid.Column="4" BorderThickness="1" BorderBrush="#acb0af" Margin="70 17" CornerRadius="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Grid.Column="4" VerticalAlignment="Center"/>
+                    <TextBlock  x:Name="txtBlockSearch"  Text="Search" Style="{StaticResource txtBlockSearch1}"/>
+                    <!--<TextBox x:Name="txtBoxSearch" Style="{StaticResource }"/>-->
+                </Grid>
+            </Border>
+
+
         </Grid>
 
         <Border Grid.Row="1" Background="WhiteSmoke" CornerRadius="25" >
@@ -35,8 +50,7 @@
         </Border>
         <DataGrid Name="datagridclientview" Grid.Row="1" Height="550" Margin="20" CanUserAddRows="False" >
 
-            <!--<DataGrid.Columns>
-                --><!--CHECKBOX--><!--
+            <DataGrid.Columns>
                 <DataGridCheckBoxColumn CanUserResize="false" >
                     <DataGridCheckBoxColumn.HeaderTemplate>
                         <DataTemplate>
@@ -44,16 +58,24 @@
                         </DataTemplate>
                     </DataGridCheckBoxColumn.HeaderTemplate>
                 </DataGridCheckBoxColumn>
+                <!--//CHECKBOX
+                <DataGridCheckBoxColumn CanUserResize="false" >
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>-->
 
-                --><!--INVOICE--><!--
+                <!--INVOICE
                 <DataGridTemplateColumn Header="Invoice" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock FontWeight="Bold" Text="{Binding InvoiceTag}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>-->
+                </DataGridTemplateColumn>-->
+            </DataGrid.Columns>
 
         </DataGrid>
 
