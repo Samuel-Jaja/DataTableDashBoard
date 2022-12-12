@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTableDashBoard", "DataTableDashBoard\DataTableDashBoard.csproj", "{6D1DF58B-0310-4995-8274-E6558A0AC84F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTableDashBoard", "DataTableDashBoard\DataTableDashBoard.csproj", "{6D1DF58B-0310-4995-8274-E6558A0AC84F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFConverters", "WPFConverters\WPFConverters.csproj", "{72E1C130-1E7B-4A48-B37A-20EEE2D6438A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6D1DF58B-0310-4995-8274-E6558A0AC84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D1DF58B-0310-4995-8274-E6558A0AC84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D1DF58B-0310-4995-8274-E6558A0AC84F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72E1C130-1E7B-4A48-B37A-20EEE2D6438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72E1C130-1E7B-4A48-B37A-20EEE2D6438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72E1C130-1E7B-4A48-B37A-20EEE2D6438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72E1C130-1E7B-4A48-B37A-20EEE2D6438A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

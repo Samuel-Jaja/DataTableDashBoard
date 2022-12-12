@@ -1,0 +1,111 @@
+﻿<Window x:Class="WPFConverters.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFConverters"
+        mc:Ignorable="d"
+        Title="WPF Converters" Height="450" Width="800">
+    <Window.Resources>
+        <local:ReversedBoolConverter x:Key="reversedBoolConverter"/>
+        <local:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+        <local:BooleanToIntConverter x:Key="booleanToIntConverter"/>
+        
+
+        <Style TargetType="GroupBox" x:Key="groupbox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Style="{StaticResource groupbox}" Grid.Row="0" Header="Reversed Bool Converter" Background="LightBlue" Padding="10" Margin="10" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="CypherCrescent IdCard" />
+                <TextBlock Grid.Column="1" Text="{Binding CypherCrescentIdCard}" />
+                <Button Content="Click Me" Grid.Column="2" IsEnabled="{Binding CypherCrescentIdCard, Converter={StaticResource reversedBoolConverter}}"/>
+            </Grid>
+            
+        </GroupBox>
+        
+        <GroupBox Style="{StaticResource groupbox}" Grid.Row="1" Header="Boolean To Int Converter" Background="MintCream" Padding="10" Margin="10" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Text="Has thick border" />
+                <TextBlock Grid.Column="1" Text="{Binding HasThickBorder}" />
+                
+                <Border Grid.Column="2" Name="border2" Margin="5" BorderThickness="{Binding HasThickBorder, Converter={StaticResource booleanToIntConverter}}" BorderBrush="Black" >
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="BorderThickness:"/>
+                        <TextBlock Text="{Binding ElementName=border2,Path=BorderThickness,UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </Border>
+                
+            </Grid>
+
+        </GroupBox>
+        
+        <GroupBox Style="{StaticResource groupbox}" Grid.Row="2" Header="Boolean To Visibility Converter" Background="Pink" Padding="10" Margin="10" >
+           
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="CCL NG" />
+                <TextBox Grid.Column="1" Margin="2" Text="CypherCrescent Nigeria" />
+                <Button Grid.Column="2" Content="Apply Now" IsEnabled="False" />
+            </Grid>
+
+        </GroupBox>
+
+        <!--<GroupBox Grid.Row="3" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Hello" />
+                <TextBlock Grid.Column="1" Text="Hello" />
+                <TextBlock Grid.Column="2" Text="Hello" />
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="4" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Hello" />
+                <TextBlock Grid.Column="1" Text="Hello" />
+                <TextBlock Grid.Column="2" Text="Hello" />
+            </Grid>
+
+        </GroupBox>-->
+
+    </Grid>
+</Window>
