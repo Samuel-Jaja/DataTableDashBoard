@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFConverters"
         mc:Ignorable="d"
-        Title="WPF Converters" Height="450" Width="800">
+        Title="WPF Converters" Height="550" Width="800">
     <Window.Resources>
         <local:ReversedBoolConverter x:Key="reversedBoolConverter"/>
         <local:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
         <local:BooleanToIntConverter x:Key="booleanToIntConverter"/>
+        <local:YesNoToBooleanConverter x:Key="yesNoToBooleanConverter"/>
+        
         
 
         <Style TargetType="GroupBox" x:Key="groupbox">
@@ -79,21 +81,22 @@
 
         </GroupBox>
 
-        <!--<GroupBox Grid.Row="3" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Hello" />
-                <TextBlock Grid.Column="1" Text="Hello" />
-                <TextBlock Grid.Column="2" Text="Hello" />
-            </Grid>
-
+        <GroupBox Style="{StaticResource groupbox}" Grid.Row="3" Header="Yes to No boolean Converter" Background="Gold" Padding="5" Margin="10" >
+            <StackPanel>
+                <TextBox Name="txtValue" />
+                <WrapPanel Margin="0,10">
+                    <TextBlock Text="Current Value is: " />
+                    <TextBlock Text="{Binding ElementName=txtValue, Path=Text, Converter={StaticResource yesNoToBooleanConverter}}"></TextBlock>
+                </WrapPanel>
+                <CheckBox IsChecked="{Binding ElementName=txtValue, Path=Text, Converter={StaticResource yesNoToBooleanConverter}}" Content="Yes" />
+            </StackPanel>
         </GroupBox>
 
-        <GroupBox Grid.Row="4" >
+        
+
+       
+
+        <!--<GroupBox Grid.Row="4" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
