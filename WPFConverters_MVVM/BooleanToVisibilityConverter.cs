@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace WPFConverters
+namespace WPFConverters_MVVM
 {
     public class BooleanToVisibilityConverter : IValueConverter
     {

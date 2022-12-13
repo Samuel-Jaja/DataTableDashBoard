@@ -4,20 +4,20 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Data;
 
-namespace WPFConverters
+namespace WPFConverters_MVVM
 {
-    public class BooleanToVisibilityConverter : IValueConverter
+    public class SafetyToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
             {
-                var boolValue = (bool)value;
-                if (boolValue) return Visibility.Visible;
-                else return Visibility.Collapsed;
+                if (((Safety)value).Equals(Safety.Dangerous)) return "Red";
+                else if (((Safety)value).Equals(Safety.Risky)) return "Orange";
+                else if (((Safety)value).Equals(Safety.Safe)) return "Green";
+                return "White";
             }
             catch (Exception ex)
             {
@@ -26,15 +26,7 @@ namespace WPFConverters
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            try
-            {
-                if (((Visibility)value).Equals(Visibility.Collapsed)) return false;
-                else return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            throw new NotImplementedException();
         }
     }
 }

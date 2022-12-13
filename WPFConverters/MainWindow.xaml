@@ -12,14 +12,13 @@
         <local:BooleanToIntConverter x:Key="booleanToIntConverter"/>
         <local:YesNoToBooleanConverter x:Key="yesNoToBooleanConverter"/>
         
-        
-
         <Style TargetType="GroupBox" x:Key="groupbox">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
         
     </Window.Resources>
+    
     <Grid>
 
         <Grid.RowDefinitions>
@@ -41,7 +40,6 @@
                 <TextBlock Grid.Column="1" Text="{Binding CypherCrescentIdCard}" />
                 <Button Content="Click Me" Grid.Column="2" IsEnabled="{Binding CypherCrescentIdCard, Converter={StaticResource reversedBoolConverter}}"/>
             </Grid>
-            
         </GroupBox>
         
         <GroupBox Style="{StaticResource groupbox}" Grid.Row="1" Header="Boolean To Int Converter" Background="MintCream" Padding="10" Margin="10" >
@@ -66,19 +64,15 @@
 
         </GroupBox>
         
-        <GroupBox Style="{StaticResource groupbox}" Grid.Row="2" Header="Boolean To Visibility Converter" Background="Pink" Padding="10" Margin="10" >
-           
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="CCL NG" />
-                <TextBox Grid.Column="1" Margin="2" Text="CypherCrescent Nigeria" />
-                <Button Grid.Column="2" Content="Apply Now" IsEnabled="False" />
-            </Grid>
-
+        
+        <GroupBox Style="{StaticResource groupbox}" Grid.Row="2" Header="Boolean To Visibility Converter" Height="100">
+            <StackPanel Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="Show the Text" GroupName="VisibilityRadio" IsChecked="{Binding IsVisibleChecked}"></RadioButton>
+                    <RadioButton Content="Hide the Text" GroupName="VisibilityRadio" Margin="20 0 0 0"></RadioButton>
+                </StackPanel>
+                <TextBlock Text="I'm Visible" Margin="10" FontSize="18" Visibility="{Binding IsVisibleChecked, Converter={StaticResource booleanToVisibilityConverter},Mode=TwoWay,NotifyOnSourceUpdated=True,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            </StackPanel>
         </GroupBox>
 
         <GroupBox Style="{StaticResource groupbox}" Grid.Row="3" Header="Yes to No boolean Converter" Background="Gold" Padding="5" Margin="10" >
@@ -92,9 +86,6 @@
             </StackPanel>
         </GroupBox>
 
-        
-
-       
 
         <!--<GroupBox Grid.Row="4" >
             <Grid>
