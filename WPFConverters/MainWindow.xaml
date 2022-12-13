@@ -87,19 +87,19 @@
         </GroupBox>
 
 
-        <!--<GroupBox Grid.Row="4" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Hello" />
-                <TextBlock Grid.Column="1" Text="Hello" />
-                <TextBlock Grid.Column="2" Text="Hello" />
-            </Grid>
+        <!--<groupbox grid.row="4" >
+            <grid>
+                <grid.columndefinitions>
+                    <columndefinition width="*"/>
+                    <columndefinition width="*"/>
+                    <columndefinition width="*"/>
+                </grid.columndefinitions>
+                <textblock grid.column="0" text="hello" />
+                <textblock grid.column="1" text="hello" />
+                <textblock grid.column="2" text="hello" />
+            </grid>
 
-        </GroupBox>-->
+        </groupbox>-->
 
     </Grid>
 </Window>

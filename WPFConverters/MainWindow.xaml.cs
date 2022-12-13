@@ -20,12 +20,10 @@ namespace WPFConverters
     /// </summary>
     public partial class MainWindow : Window
     {
-        public bool CypherCrescentIdCard { get; set; } = false;
+        public bool CypherCrescentIdCard { get; set; } 
         public bool CypherCrescentNigeria { get; set; } = true;
         public bool HasThickBorder { get; set; } = true;
-
-
-
+        public bool IsVisibleChecked { get; set; } = false;
 
         public MainWindow()
         {

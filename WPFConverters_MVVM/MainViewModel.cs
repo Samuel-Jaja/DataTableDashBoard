@@ -13,11 +13,12 @@ namespace WPFConverters_MVVM
             #region Constructor
             public MainViewModel()
             {
-            SelectedSize = TextSize.Small;
-            SelectedSafety = Safety.Safe;
+            SelectedSize = TextSize.Big;
+            SelectedSafety = Safety.Dangerous;
             }
             #endregion
-            #region Safety Combo
+
+            #region Safety Rules
             public List<Safety> SafetyList
             {
                 get
@@ -35,10 +36,11 @@ namespace WPFConverters_MVVM
                 set
                 {
                     _selectedSafety = value;
-                    NotifyPropertyChanged("SelectedSafety");
+                    OnPropertyChanged("SelectedSafety");
                 }
             }
             #endregion
+
             #region Text Content
             private string _textContent;
             public string TextContent
@@ -50,7 +52,7 @@ namespace WPFConverters_MVVM
                 set
                 {
                     _textContent = value;
-                    NotifyPropertyChanged("TextContent");
+                    OnPropertyChanged("TextContent");
                 }
             }
             private void UpdateText()
@@ -58,20 +60,21 @@ namespace WPFConverters_MVVM
                 switch (SelectedSize)
                 {
                     case TextSize.Small:
-                        TextContent = "I'm CypherCrescent";
+                        TextContent = "CypherCrescent Group";
                         break;
                     case TextSize.Medium:
-                        TextContent = "I'm CypherCrescent";
+                        TextContent = "CypherCrescent Group";
                         break;
                     case TextSize.Big:
-                        TextContent = "I'm CypherCrescent";
+                        TextContent = "CypherCrescent Group";
                         break;
                     default:
                         break;
                 }
             }
             #endregion
-            #region Text Size
+
+            #region For Text Size
             public List<TextSize> TextSizeList
             {
                 get
@@ -89,12 +92,13 @@ namespace WPFConverters_MVVM
                 set
                 {
                     _selectedTextSize = value;
-                    NotifyPropertyChanged("SelectedSize");
+                    OnPropertyChanged("SelectedSize");
                     UpdateText();
                 }
             }
             #endregion
-            #region Visibility
+
+            #region For Visibility
             private bool _isVisibleChecked;
             public bool IsVisibleChecked
             {
@@ -105,14 +109,14 @@ namespace WPFConverters_MVVM
                 set
                 {
                     _isVisibleChecked = value;
-                    NotifyPropertyChanged("IsVisibleChecked");
+                    OnPropertyChanged("IsVisibleChecked");
                 }
             }
             #endregion
 
-            #region Property Changed
+            #region For Property Changed
             public event PropertyChangedEventHandler? PropertyChanged;
-            public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+            public void OnPropertyChanged([CallerMemberName] string propertyName = "")
             {
                 if (PropertyChanged != null)
                 {
@@ -120,21 +124,7 @@ namespace WPFConverters_MVVM
                 }
             }
             #endregion
-        }
-
     }
 
-public enum Safety
-{
-    Safe,
-    Risky,
-    Dangerous
-}
-
-public enum TextSize
-{
-    Small,
-    Medium,
-    Big
 }
 
